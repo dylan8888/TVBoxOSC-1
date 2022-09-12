@@ -2,7 +2,7 @@ name: build-tvbox
 
 on:
   schedule:
-    - cron: 0 12 * * *
+    - cron: 0 0-18 * * *
   push:
     branches:
       - master
@@ -15,11 +15,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: dylan8888
+          - userName: q215613905
             repoName: TVBoxOS
             branchName: main
-          - userName: dylan8888
-            repoName: TVBox-taka
+          - userName: takagen99
+            repoName: Box
             branchName: main
     steps:
       - name: Checkout
