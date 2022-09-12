@@ -15,11 +15,11 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - userName: q215613905
+          - userName: dylan8888
             repoName: TVBoxOS
             branchName: main
-          - userName: takagen99
-            repoName: Box
+          - userName: dylan8888
+            repoName: TVBox-taka
             branchName: main
     steps:
       - name: Checkout
