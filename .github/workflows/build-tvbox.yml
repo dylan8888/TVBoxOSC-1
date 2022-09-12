@@ -1,8 +1,8 @@
-name: Test
+name: build-tvbox
 
 on:
   schedule:
-    - cron: 15,45 0-18 * * *
+    - cron: 0 12 1 * *
   push:
     branches:
       - master
