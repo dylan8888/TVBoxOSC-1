@@ -40,8 +40,7 @@ jobs:
           cd TVBoxOSC
           git checkout ${{ env.commit }}
           echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
-          echo "tag=$tag"
-          echo "tagName=${tag:0:6}" >> $GITHUB_ENV
+          echo "tagName=${env.tag:0:6}" >> $GITHUB_ENV
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
       - name: Release Apk Sign
         if: ${{ env.commit }}
