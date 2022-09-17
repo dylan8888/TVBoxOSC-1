@@ -2,7 +2,7 @@ name: build-tvbox-takagen
 
 on:
   schedule:
-    - cron: 0 0-18 * * *
+    - cron: 0 7 * * *
   #push:
   #  branches:
   #    - master
@@ -40,7 +40,7 @@ jobs:
           cd TVBoxOSC
           git checkout ${{ env.commit }}
           tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)
-          echo "tag=$(tag)" >> $GITHUB_ENV
+          echo "tag=$tag" >> $GITHUB_ENV
           echo "tagName=${tag:0:6}" >> $GITHUB_ENV
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
       - name: Release Apk Sign
