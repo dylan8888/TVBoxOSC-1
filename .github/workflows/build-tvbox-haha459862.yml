@@ -3,10 +3,10 @@ name: build-tvbox-haha459862
 on:
   schedule:
     - cron: 0 0-18 * * *
-  push:
-    branches:
-      - master
-  workflow_dispatch:
+  #push:
+  #  branches:
+  #    - master
+  #workflow_dispatch:
 
 jobs:
   build:
