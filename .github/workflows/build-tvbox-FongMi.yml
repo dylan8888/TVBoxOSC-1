@@ -41,6 +41,8 @@ jobs:
           git checkout ${{ env.commit }}
           echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
           #sed -i 'core_settings.gradle/d' settings.gradle
+          mkdir exo
+          cp -f ${{ github.workspace }}/.github/workflows/ore_settings.gradle exo/ore_settings.gradle
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
       - name: Release Apk Sign
         if: ${{ env.commit }}
