@@ -80,8 +80,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ env.commit }}
         with:
-          name: ${{ matrix.userName }}-${{ env.tag }}
-          tag_name: ${{ matrix.userName }}-${{ env.tag }}
+          name: ${{ matrix.userName }}
+          tag_name: ${{ matrix.userName }}
           body: "Credit: ${{ matrix.userName }}/${{ matrix.repoName }}\n
                  Commit: ${{ env.commit }}"
           files: |
