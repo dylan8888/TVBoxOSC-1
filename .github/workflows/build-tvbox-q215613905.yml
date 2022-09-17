@@ -2,7 +2,7 @@ name: build-tvbox-q215613905
 
 on:
   schedule:
-    - cron: 0 0-18 * * *
+    - cron: 0 7 * * *
   #push:
   #  branches:
   #    - master
