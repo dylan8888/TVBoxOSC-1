@@ -2,7 +2,7 @@ name: build-tvbox-kensonmiao
 
 on:
   schedule:
-    - cron: 0 0-18 * * *
+    - cron: 0 7 * * *
   #push:
   #  branches:
   #    - master
@@ -39,7 +39,9 @@ jobs:
           git clone ${{ env.upStream }} TVBoxOSC
           cd TVBoxOSC
           git checkout ${{ env.commit }}
-          echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
+          tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)
+          echo "tag=$(tag)" >> $GITHUB_ENV
+          echo "tagName=${tag:0:6}" >> $GITHUB_ENV
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
       - name: Release Apk Sign
         if: ${{ env.commit }}
@@ -80,8 +82,8 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: ${{ env.commit }}
         with:
-          name: ${{ matrix.userName }}-${{ env.tag }}
-          tag_name: ${{ matrix.userName }}-${{ env.tag }}
+          name: ${{ matrix.userName }}-${{ env.tagName }}
+          tag_name: ${{ matrix.userName }}-${{ env.tagName }}
           body: "Credit: ${{ matrix.userName }}/${{ matrix.repoName }}\n
                  Commit: ${{ env.commit }}"
           files: |
