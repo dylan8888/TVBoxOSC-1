@@ -2,7 +2,7 @@ name: build-tvbox-clanTV
 
 on:
   schedule:
-    - cron: 0 7 * * *
+    - cron: 5 7 * * *
   #push:
   #  branches:
   #    - master
