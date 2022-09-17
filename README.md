@@ -14,4 +14,4 @@ This repo relies on the following third-party projects:
 - [FongMi/TV](https://github.com/FongMi/TV) (Updated: fd3387b6b21867d4bdd0e913b477eb3a2a095ee4)
 - [clanTV/clanTV](https://github.com/clanTV/clanTV) (Updated: cfd66ed1a4b44e2d5f69501543e42aae0db19f91)
 - [haha459862/BearTV](https://github.com/haha459862/BearTV) (Updated: fd3387b6b21867d4bdd0e913b477eb3a2a095ee4)
-- [takagen99/定制化](https://github.com/takagen99/Box) (Updated: 503d83d16f92bab89460370613613baceb28bebf)
+- [dylan8888/TVBox-taka](https://github.com/dylan8888/TVBox-taka) (Updated: 503d83d16f92bab89460370613613baceb28bebf)
