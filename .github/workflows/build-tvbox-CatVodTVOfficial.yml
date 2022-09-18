@@ -2,7 +2,7 @@ name: build-tvbox-CatVodTVOfficial
 
 on:
   schedule:
-    - cron: 0 7 * * *
+    - cron: 0 15 * * *
   #push:
   #  branches:
   #    - master
