@@ -2,7 +2,7 @@ name: build-tvbox-takagen
 
 on:
   schedule:
-    - cron: 20 7 * * *
+    - cron: 20 15 * * *
   #push:
   #  branches:
   #    - master
