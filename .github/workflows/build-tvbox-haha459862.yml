@@ -40,9 +40,8 @@ jobs:
           cd TVBoxOSC
           git checkout ${{ env.commit }}
           echo "tag=$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)" >> $GITHUB_ENV
-          sed -i 's#/exo/core_settings.gradle#exo/core_settings.gradle#' settings.gradle
-          mkdir exo
-          cp -f ${{ github.workspace }}/.github/workflows/core_settings.gradle exo/core_settings.gradle
+          sed -i 's#/exo/core_settings.gradle#core_settings.gradle#' settings.gradle
+          cp -f ${{ github.workspace }}/.github/workflows/core_settings.gradle core_settings.gradle
           zip -q -x ".git/*" -r ${{ env.commitS }}-source.zip .
       - name: Release Apk Sign
         if: ${{ env.commit }}
