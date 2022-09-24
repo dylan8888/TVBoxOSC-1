@@ -11,6 +11,6 @@ This repo relies on the following third-party projects:
 - [q215613905/TVBoxOS](https://github.com/q215613905/TVBoxOS) (Updated: 1593fb8949a575a6261c67e1a7ed570822f8d013)
 - [takagen99/Box](https://github.com/takagen99/Box) (Updated: cad196d44afcc71f08060440a1ed2ef3de329758)
 - [kensonmiao/CatVodTVOSC](https://github.com/kensonmiao/CatVodTVOSC) (Updated: 64eef03b4c630468b55d9a4855de66eb4f79728e)
-- [FongMi/TV](https://github.com/FongMi/TV) (Updated: fd3387b6b21867d4bdd0e913b477eb3a2a095ee4)
+- [FongMi/TV](https://github.com/FongMi/TV) (Updated: 5a3f64a1c386877bc7d4cc3e330bab5d22786f2b)
 - [clanTV/clanTV](https://github.com/clanTV/clanTV) (Updated: cfd66ed1a4b44e2d5f69501543e42aae0db19f91)
 - [haha459862/BearTV](https://github.com/haha459862/BearTV) (Updated: fd3387b6b21867d4bdd0e913b477eb3a2a095ee4)
