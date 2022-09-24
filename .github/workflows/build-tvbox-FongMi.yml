@@ -47,6 +47,7 @@ jobs:
           #tag
           tag="$(git log --date=format:'%Y%m%d-%H%M' --pretty=format:%cd ${{ env.commitS }} -1)"
           echo "tag=$tag" >> $GITHUB_ENV
+          echo "tagName=${tag:0:6}" >> $GITHUB_ENV
       - name: Release Changelog
         if: ${{ env.commit }}
         working-directory: ${{ env.repoName }}
@@ -157,31 +158,19 @@ jobs:
       - name: Release and Upload Assets
         uses: softprops/action-gh-release@v1
         with:
-          name: ${{ env.tag }}
-          tag_name: ${{ env.tag }}
-          body: ${{ env.commit }}
+          name: ${{ matrix.userName }}-${{ env.tagName }}
+          tag_name: ${{ matrix.userName }}-${{ env.tagName }}
+          body: "Credit: ${{ matrix.userName }}/${{ matrix.repoName }}\n
+                 Commit: ${{ env.commit }}"
           files: |
             apk/*.apk
             apk/*-source.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Post To Telegram
-        working-directory: apk/
-        run: |
-          if [ -n "${{ secrets.CHANNEL_ID }}" ] && [ -n "${{ secrets.BOT_TOKEN }}" ]; then
-            export apk1=$(find ~ -name "*leanback*.apk")
-            export apk2=$(find ~ -name "*mobile*.apk")
-            export sourceCode=$(find ~ -name "*-source.zip")
-            if [ -s "$apk2" ]; then
-              curl -v "https://api.telegram.org/bot${{ secrets.BOT_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2Fapk1%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2Fapk2%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FsourceCode%22%2C%20%22caption%22%3A%22Commit%3A%20${{ env.commit }}%0AChangelog%3A%0A${{ env.ESCAPED }}%22%2C%22parse_mode%22%3A%20%22Markdown%22%7D%5D" -F apk1="@$apk1" -F apk2="@$apk2" -F sourceCode="@$sourceCode"
-            else
-              curl -v "https://api.telegram.org/bot${{ secrets.BOT_TOKEN }}/sendMediaGroup?chat_id=${{ secrets.CHANNEL_ID }}&media=%5B%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2Fapk1%22%7D%2C%7B%22type%22%3A%22document%22%2C%20%22media%22%3A%22attach%3A%2F%2FsourceCode%22%2C%20%22caption%22%3A%22Commit%3A%20${{ env.commit }}%0AChangelog%3A%0A${{ env.ESCAPED }}%22%2C%22parse_mode%22%3A%20%22Markdown%22%7D%5D" -F apk1="@$apk1" -F sourceCode="@$sourceCode"
-            fi
-          fi
       - name: Push to master
         run: |
           rm -rf apk/
-          sed -i "/Updated Commit/c\\+ Updated Commit: ${{ env.commit }}" README.md
+          sed -i "/${{ matrix.userName }}\/${{ matrix.repoName }}/s#Updated: [a-zA-Z0-9]*#Updated: ${{ env.commit }}#" README.md
           sed -i '/url =/d' ./.git/config
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
