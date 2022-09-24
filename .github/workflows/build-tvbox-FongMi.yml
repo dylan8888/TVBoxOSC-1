@@ -1,8 +1,8 @@
-name: Test
+name: build-tvbox-FongMi
 
 on:
   schedule:
-    - cron: 45 0/4 * * *
+    - cron: 20 15 * * *
   workflow_dispatch:
 
 
