@@ -14,10 +14,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
+        product: [ leanback, mobile ]
         include:
           - userName: FongMi
             repoName: TV
             branchName: dev
+    env:
+      product: ${{ matrix.product }}        
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -64,7 +67,7 @@ jobs:
         working-directory: TVBoxOSC
         run: |
           chmod +x gradlew
-          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
+          ./gradlew assemble${{ env.product }}release --build-cache --parallel --daemon --warning-mode all --stacktrace
       - name: Prepare App
         if: ${{ env.commit }}
         working-directory: TVBoxOSC
