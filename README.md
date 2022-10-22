@@ -12,5 +12,5 @@ This repo relies on the following third-party projects:
 - [takagen99/Box](https://github.com/takagen99/Box) (Updated: 1453829154248733154a8b994dfca1a6b20837c3)
 - [kensonmiao/CatVodTVOSC](https://github.com/kensonmiao/CatVodTVOSC) (Updated: 64eef03b4c630468b55d9a4855de66eb4f79728e)
 - [FongMi/TV](https://github.com/FongMi/TV) (Updated: 5a3f64a1c386877bc7d4cc3e330bab5d22786f2b)
-- [clanTV/clanTV](https://github.com/clanTV/clanTV) (Updated: 916055f5d215a38452a41e34e65ee9e143eac34e)
+- [clanTV/clanTV](https://github.com/clanTV/clanTV) (Updated: 32bd74f6826071368fb5ea0f3346f3b4a1289e98)
 - [haha459862/BearTV](https://github.com/haha459862/BearTV) (Updated: fd3387b6b21867d4bdd0e913b477eb3a2a095ee4)
